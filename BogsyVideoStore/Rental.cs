@@ -66,7 +66,6 @@ namespace BogsyVideoStore
                 {
                     conn.Open();
 
-                    // Check if Customer ID exists
                     string checkCustomerQuery = "SELECT COUNT(*) FROM customer_tbl WHERE CustomerID = @CustomerID";
                     using (MySqlCommand cmd = new MySqlCommand(checkCustomerQuery, conn))
                     {
@@ -80,7 +79,6 @@ namespace BogsyVideoStore
                         }
                     }
 
-                    // Check if Video ID exists and get Category + Stock
                     string videoCategory = "";
                     int stock = 0;
                     string checkVideoQuery = "SELECT Category, Stock FROM video_tbl WHERE VideoID = @VideoID";
@@ -105,7 +103,6 @@ namespace BogsyVideoStore
                         return;
                     }
 
-                    // Validate rental duration
                     DateTime rentalDate = rentalDate_datepick.Value;
                     DateTime returnDate = returnDate_datepick.Value;
                     int rentalDays = (int)(returnDate - rentalDate).TotalDays;
@@ -298,7 +295,7 @@ namespace BogsyVideoStore
                 {
                     conn.Open();
 
-                    // Update rental status to "Returned"
+
                     string updateRentalQuery = "UPDATE rental_tbl SET Status = 'Returned' WHERE RentalID = @rentalID";
                     using (MySqlCommand cmd = new MySqlCommand(updateRentalQuery, conn))
                     {
@@ -306,7 +303,6 @@ namespace BogsyVideoStore
                         cmd.ExecuteNonQuery();
                     }
 
-                    // Increase stock by 1
                     string updateStockQuery = "UPDATE video_tbl SET Stock = Stock + 1 WHERE VideoID = @VideoID";
                     using (MySqlCommand cmd = new MySqlCommand(updateStockQuery, conn))
                     {
