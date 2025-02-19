@@ -1,3 +1,5 @@
+using MySql.Data.MySqlClient;
+
 namespace BogsyVideoStore
 {
     public partial class Form1 : Form
@@ -5,7 +7,21 @@ namespace BogsyVideoStore
         public Form1()
         {
             InitializeComponent();
-        }
+            string mysqlCon = "server=127.0.0.1; user=root; database=bogsy_video_store; password=";
+            MySqlConnection mySqlConnection = new MySqlConnection(mysqlCon);
+            try
+            {
+                mySqlConnection.Open();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                mySqlConnection.Close();
+            }
+        } 
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             RentalToPanel(new Rental_panel());
@@ -52,6 +68,10 @@ namespace BogsyVideoStore
             Main_panel.Controls.Add(frm);
             frm.Show();
         }
+        private void Payment_btn_Click(object sender, EventArgs e)
+        {
+
+        }
         private void report_btn_Click(object sender, EventArgs e)
         {
 
@@ -65,5 +85,6 @@ namespace BogsyVideoStore
         {
 
         }
+
     }
 }

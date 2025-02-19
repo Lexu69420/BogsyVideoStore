@@ -35,6 +35,7 @@ namespace BogsyVideoStore
             report_btn = new Button();
             archive_btn = new Button();
             panel1 = new Panel();
+            Payment_btn = new Button();
             panel2 = new Panel();
             panel3 = new Panel();
             Main_panel = new Panel();
@@ -43,7 +44,7 @@ namespace BogsyVideoStore
             // 
             // customer_btn
             // 
-            customer_btn.BackColor = Color.FromArgb(236, 126, 34);
+            customer_btn.BackColor = Color.FromArgb(224, 224, 224);
             customer_btn.Location = new Point(32, 292);
             customer_btn.Name = "customer_btn";
             customer_btn.Size = new Size(164, 64);
@@ -54,7 +55,7 @@ namespace BogsyVideoStore
             // 
             // video_btn
             // 
-            video_btn.BackColor = Color.FromArgb(236, 126, 34);
+            video_btn.BackColor = Color.FromArgb(224, 224, 224);
             video_btn.Location = new Point(32, 193);
             video_btn.Name = "video_btn";
             video_btn.Size = new Size(164, 64);
@@ -65,7 +66,7 @@ namespace BogsyVideoStore
             // 
             // rental_btn
             // 
-            rental_btn.BackColor = Color.FromArgb(236, 126, 34);
+            rental_btn.BackColor = Color.FromArgb(224, 224, 224);
             rental_btn.Location = new Point(32, 99);
             rental_btn.Name = "rental_btn";
             rental_btn.Size = new Size(164, 64);
@@ -76,8 +77,8 @@ namespace BogsyVideoStore
             // 
             // report_btn
             // 
-            report_btn.BackColor = Color.FromArgb(236, 126, 34);
-            report_btn.Location = new Point(32, 392);
+            report_btn.BackColor = Color.FromArgb(224, 224, 224);
+            report_btn.Location = new Point(32, 591);
             report_btn.Name = "report_btn";
             report_btn.Size = new Size(164, 64);
             report_btn.TabIndex = 4;
@@ -87,7 +88,7 @@ namespace BogsyVideoStore
             // 
             // archive_btn
             // 
-            archive_btn.BackColor = Color.FromArgb(236, 126, 34);
+            archive_btn.BackColor = Color.FromArgb(224, 224, 224);
             archive_btn.Location = new Point(32, 490);
             archive_btn.Name = "archive_btn";
             archive_btn.Size = new Size(164, 64);
@@ -98,7 +99,8 @@ namespace BogsyVideoStore
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(211, 84, 0);
+            panel1.BackColor = Color.Silver;
+            panel1.Controls.Add(Payment_btn);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(rental_btn);
             panel1.Controls.Add(report_btn);
@@ -108,12 +110,23 @@ namespace BogsyVideoStore
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(224, 596);
+            panel1.Size = new Size(224, 729);
             panel1.TabIndex = 6;
+            // 
+            // Payment_btn
+            // 
+            Payment_btn.BackColor = Color.FromArgb(224, 224, 224);
+            Payment_btn.Location = new Point(32, 391);
+            Payment_btn.Name = "Payment_btn";
+            Payment_btn.Size = new Size(164, 64);
+            Payment_btn.TabIndex = 7;
+            Payment_btn.Text = "Payment History";
+            Payment_btn.UseVisualStyleBackColor = false;
+            Payment_btn.Click += Payment_btn_Click;
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(236, 126, 34);
+            panel2.BackColor = Color.Gray;
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
@@ -122,19 +135,20 @@ namespace BogsyVideoStore
             // 
             // panel3
             // 
-            panel3.BackColor = Color.FromArgb(236, 126, 34);
+            panel3.BackColor = Color.Gray;
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(224, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(902, 65);
+            panel3.Size = new Size(1126, 65);
             panel3.TabIndex = 7;
             // 
             // Main_panel
             // 
+            Main_panel.BackColor = Color.FromArgb(224, 224, 224);
             Main_panel.Dock = DockStyle.Fill;
             Main_panel.Location = new Point(224, 65);
             Main_panel.Name = "Main_panel";
-            Main_panel.Size = new Size(902, 531);
+            Main_panel.Size = new Size(1126, 664);
             Main_panel.TabIndex = 8;
             Main_panel.Paint += panel4_Paint;
             // 
@@ -142,7 +156,7 @@ namespace BogsyVideoStore
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1126, 596);
+            ClientSize = new Size(1350, 729);
             Controls.Add(Main_panel);
             Controls.Add(panel3);
             Controls.Add(panel1);
@@ -165,5 +179,6 @@ namespace BogsyVideoStore
         private Panel panel2;
         private Panel panel3;
         private Panel Main_panel;
+        private Button Payment_btn;
     }
 }
